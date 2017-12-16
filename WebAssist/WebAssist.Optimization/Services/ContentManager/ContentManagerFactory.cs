@@ -49,7 +49,7 @@ namespace WebAssist.Optimizations
 
         private static IBundlingSettings GetBundlingSettings()
         {
-            IBundlingSettings bundlingSettings = BundlingSettings.CustomSettings;
+            IBundlingSettings bundlingSettings = BundlingSettings.Instance;
             if (bundlingSettings != null)
                 return bundlingSettings;
 
@@ -57,6 +57,7 @@ namespace WebAssist.Optimizations
             if (configuration == null)
                 throw new ConfigurationErrorsException($"Configuration section '{BundlingConfigurationSection.SectionName}' of type {typeof(BundlingConfigurationSection).FullName} was not found. Either establish this section in your application's configuration or call BundlingSettings.ApplySettings on application startup.");
 
+            BundlingSettings.ApplySettings(configuration);
             return configuration;
         }
 

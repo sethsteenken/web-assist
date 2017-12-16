@@ -4,7 +4,7 @@ namespace WebAssist.Optimizations
 {
     public sealed class BundlingSettings : IBundlingSettings
     {
-        internal static IBundlingSettings CustomSettings;
+        internal static IBundlingSettings Instance;
 
         public bool Enabled { get; set; }
         public string JSOutputDirectory { get; set; }
@@ -14,7 +14,7 @@ namespace WebAssist.Optimizations
 
         public static void ApplySettings(IBundlingSettings settings)
         {
-            CustomSettings = settings ?? throw new ArgumentNullException(nameof(IBundlingSettings));
+            Instance = settings ?? throw new ArgumentNullException(nameof(IBundlingSettings));
         }
     }
 }

@@ -35,28 +35,34 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\BundleConfigurationBuilder.cs" />
+    <Compile Include="Configuration\BundlingConfigurationSection.cs" />
+    <Compile Include="Configuration\IBundleConfigurationBuilder.cs" />
+    <Compile Include="Models\Bundle.cs" />
+    <Compile Include="Models\BundleConfigInfo.cs" />
+    <Compile Include="Models\BundleTypeOption.cs" />
+    <Compile Include="Models\BundlingSettings.cs" />
+    <Compile Include="Models\ContentTag.cs" />
+    <Compile Include="Models\IBundlingSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resolvers\BundleResolver.cs" />
-    <Compile Include="Resolvers\FileWriteTimeVersionResolver.cs" />
-    <Compile Include="Resolvers\IBundleResolver.cs" />
-    <Compile Include="Resolvers\IVersionResolver.cs" />
+    <Compile Include="Services\BundleInterpreter\BundleInterpreter.cs" />
+    <Compile Include="Services\BundleInterpreter\IBundleInterpreter.cs" />
+    <Compile Include="Services\BundleResolver\BundleResolver.cs" />
+    <Compile Include="Services\BundleResolver\IBundleResolver.cs" />
     <Compile Include="Services\ContentHelper.cs" />
-    <Compile Include="Services\ContentManager.cs" />
-    <Compile Include="Services\ContentTag.cs" />
-    <Compile Include="Settings\Bundle.cs" />
-    <Compile Include="Settings\BundleConfigFile.cs" />
-    <Compile Include="Settings\BundleConfigFileInfo.cs" />
-    <Compile Include="Settings\BundleSettings.cs" />
-    <Compile Include="Settings\BundlesManager.cs" />
-    <Compile Include="Settings\BundlesManagerExtensions.cs" />
-    <Compile Include="Settings\Enums.cs" />
-    <Compile Include="Settings\JsonBundleConfigFile.cs" />
-    <Compile Include="Utils\UrlFormatter.cs" />
+    <Compile Include="Services\ContentManager\ContentManager.cs" />
+    <Compile Include="Services\ContentManager\ContentManagerFactory.cs" />
+    <Compile Include="Services\ContentManager\IContentManager.cs" />
+    <Compile Include="Services\PathFormatter\IPathFormatter.cs" />
+    <Compile Include="Services\PathFormatter\UrlPathFormatter.cs" />
+    <Compile Include="Services\VersionResolver\FileWriteTimeVersionResolver.cs" />
+    <Compile Include="Services\VersionResolver\IVersionResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

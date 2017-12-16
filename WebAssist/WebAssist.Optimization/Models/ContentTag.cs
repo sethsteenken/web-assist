@@ -3,16 +3,28 @@ using System.Web;
 
 namespace WebAssist.Optimizations
 {
-    internal class ContentTag
+    public class ContentTag
     {
-        public string Value { get; set; }
-        public bool IsStatic { get; set; }
-        public bool IsBundle { get; set; }
+        public ContentTag(string value) : this (value, false)
+        {
 
-        public ContentTag(string value)
+        }
+
+        public ContentTag(string value, bool isBundle) : this (value, isBundle, false)
+        {
+
+        }
+
+        public ContentTag(string value, bool isBundle, bool isStatic)
         {
             Value = FormatPath(value);
+            IsBundle = isBundle;
+            IsStatic = IsStatic;
         }
+
+        public string Value { get; private set; }
+        public bool IsStatic { get; private set; }
+        public bool IsBundle { get; private set; }
 
         private static string FormatPath(string value)
         {
@@ -28,6 +40,11 @@ namespace WebAssist.Optimizations
             }
 
             return value;
+        }
+
+        public void UpdateValue(string value)
+        {
+            Value = value;
         }
 
         public string Render(string tagFormat)

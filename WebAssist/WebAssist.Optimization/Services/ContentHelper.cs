@@ -1,40 +1,44 @@
-﻿using System.Web;
-using System;
+﻿using System;
+using System.Web;
 
 namespace WebAssist.Optimizations
 {
-    public class ContentHelper
+    public sealed class ContentHelper
     {
-        private const string _defaultScriptTagFormat = @"<script src=""{0}"" type=""text/javascript""></script>";
-        private const string _defaultStyleTagFormat = @"<link href=""{0}"" rel=""stylesheet""/>";
+        public const string DefaultScriptTagFormat = @"<script src=""{0}"" type=""text/javascript""></script>";
+        public const string DefaultStyleTagFormat = @"<link href=""{0}"" rel=""stylesheet""/>";
 
-        internal ContentHelper(HttpContextBase httpContext)
+        private readonly IContentManager manager;
+
+        public ContentHelper(IContentManager manager)
         {
-            if (httpContext == null)
-                throw new ArgumentNullException(nameof(httpContext));
+            if (manager == null)
+                throw new ArgumentNullException(nameof(manager));
 
-            Manager = ContentManager.GetInstance(httpContext);
+            this.manager = manager;
         }
-
-        internal ContentManager Manager { get; private set; }
-
-        public static ContentHelper Create() => Create(HttpContext.Current);
-        public static ContentHelper Create(HttpContext httpContext) => Create(new HttpContextWrapper(httpContext));
-        public static ContentHelper Create(HttpContextBase httpContext) => new ContentHelper(httpContext);
 
         public IHtmlString RenderScripts(params string[] pathsOrBundles)
         {
-            return RenderFormat(_defaultScriptTagFormat, pathsOrBundles);
+            return RenderFormat(DefaultScriptTagFormat, pathsOrBundles);
         }
 
         public IHtmlString RenderStyles(params string[] pathsOrBundles)
         {
-            return RenderFormat(_defaultStyleTagFormat, pathsOrBundles);
+            return RenderFormat(DefaultStyleTagFormat, pathsOrBundles);
         }
 
         public IHtmlString RenderFormat(string tagFormat, params string[] pathsOrBundles)
         {
-            return Manager.Render(tagFormat, pathsOrBundles);
+            return manager.Render(tagFormat, pathsOrBundles);
+        }
+
+        public static ContentHelper Create() => Create(HttpContext.Current);
+        public static ContentHelper Create(HttpContext httpContext) => Create(new HttpContextWrapper(httpContext));
+        public static ContentHelper Create(HttpContextBase httpContext)
+        {
+            var manager = ContentManagerFactory.GetInstance(httpContext);
+            return new ContentHelper(manager);
         }
     }
 }

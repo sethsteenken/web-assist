@@ -1,6 +1,6 @@
 ﻿namespace WebAssist.Optimizations
 {
-    public enum BundleType
+    public enum BundleTypeOption
     {
         Default,
         JS,

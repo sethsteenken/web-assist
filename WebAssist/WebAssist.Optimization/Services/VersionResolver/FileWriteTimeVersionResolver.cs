@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Web;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     public class FileWriteTimeVersionResolver : IVersionResolver
     {

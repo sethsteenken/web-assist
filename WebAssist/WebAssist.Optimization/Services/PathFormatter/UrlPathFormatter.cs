@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     public class UrlPathFormatter : IPathFormatter
     {

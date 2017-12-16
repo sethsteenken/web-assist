@@ -1,9 +1,9 @@
 ﻿using System.Configuration;
 using System.Web;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
-    internal class BundlingConfigurationSection : ConfigurationSection, IBundlingSettings
+    public class BundlingConfigurationSection : ConfigurationSection, IBundlingSettings
     {
         public const string SectionName = "webBundling";
 
@@ -54,17 +54,17 @@ namespace WebAssist.Optimizations
             set { this["useVersioning"] = value; }
         }
 
-        [ConfigurationProperty("configurationsDirectory")]
-        public string ConfigurationsDirectory
+        [ConfigurationProperty("definitionsDirectory")]
+        public string DefinitionsDirectory
         {
             get
             {
-                string value = (string)this["configurationsDirectory"];
+                string value = (string)this["definitionsDirectory"];
                 if (string.IsNullOrWhiteSpace(value))
                     value = @"/Config/BundleDefinitions/";
                 return value;
             }
-            set { this["configurationsDirectory"] = value; }
+            set { this["definitionsDirectory"] = value; }
         }
     }
 }

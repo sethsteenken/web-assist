@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     public class Bundle
     {

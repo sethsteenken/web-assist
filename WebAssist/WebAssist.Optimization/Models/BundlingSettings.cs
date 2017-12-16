@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     public sealed class BundlingSettings : IBundlingSettings
     {
@@ -10,7 +10,7 @@ namespace WebAssist.Optimizations
         public string JSOutputDirectory { get; set; }
         public string CSSOutputDirectory { get; set; }
         public bool UseVersioning { get; set; }
-        public string ConfigurationsDirectory { get; set; }
+        public string DefinitionsDirectory { get; set; }
 
         public static void ApplySettings(IBundlingSettings settings)
         {

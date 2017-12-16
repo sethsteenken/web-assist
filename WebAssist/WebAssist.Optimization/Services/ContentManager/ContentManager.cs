@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     public sealed class ContentManager : IContentManager
     {

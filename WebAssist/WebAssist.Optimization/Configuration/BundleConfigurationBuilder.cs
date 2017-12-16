@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     public class BundleConfigurationBuilder : IBundleConfigurationBuilder
     {

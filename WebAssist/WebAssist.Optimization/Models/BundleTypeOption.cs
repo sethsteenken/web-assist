@@ -1,4 +1,4 @@
-﻿namespace WebAssist.Optimizations
+﻿namespace WebAssist.Optimization
 {
     public enum BundleTypeOption
     {

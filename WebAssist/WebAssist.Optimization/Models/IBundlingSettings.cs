@@ -1,9 +1,9 @@
-﻿namespace WebAssist.Optimizations
+﻿namespace WebAssist.Optimization
 {
     public interface IBundlingSettings
     {
         bool Enabled { get; }
-        string ConfigurationsDirectory { get; }
+        string DefinitionsDirectory { get; }
         string JSOutputDirectory { get; }
         string CSSOutputDirectory { get; }
         bool UseVersioning { get; }

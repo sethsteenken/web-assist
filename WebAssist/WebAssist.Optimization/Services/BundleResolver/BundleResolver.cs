@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     public class BundleResolver : IBundleResolver
     {

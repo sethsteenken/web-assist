@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Web;
 
-namespace WebAssist.Optimizations
+namespace WebAssist.Optimization
 {
     internal static class ContentManagerFactory
     {
@@ -36,7 +36,7 @@ namespace WebAssist.Optimizations
 
             IBundlingSettings bundlingSettings = GetBundlingSettings();            
 
-            string configsDirectory = httpContext.Server.MapPath(bundlingSettings.ConfigurationsDirectory);
+            string configsDirectory = httpContext.Server.MapPath(bundlingSettings.DefinitionsDirectory);
             IBundleResolver bundleResolver = new BundleResolver(
                 bundlingSettings,
                 new FileWriteTimeVersionResolver(httpContext.Server),
